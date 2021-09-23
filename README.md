@@ -20,8 +20,11 @@ mkdir notebooks
 ```
 
 - Build the docker image. 
+
 NB : By doing this also the image "ermannobartoli99/sapienza-ml2021:latest" will be pulled, so you'll start from this existing image
+
 NB : the folder nootebooks that you've create will be useful in order to share files between your pc and the container
+
 NB : the command sudo is not always needed for docker commands, but in some cases they only work with sudo
 
 ```bash
@@ -38,8 +41,10 @@ Once that you're ready, you have to run the image by doing the following command
 sudo docker run -p 8888:8888 -v PATH_TO_DIRECTORY/:/src/ NAME_OF_IMAGE
 ```
 NB: -p 8888:8888 should be always the same because it's for the port
+
 NB: -v is needed to share folders between your pc and docker so if you add a file inside the docker, the changes will be visible also after the closure of it.
 If you want to see the PATH_TO_DIRECTORY just go inside the directory (cd sapienza-ml2021) then use this command:
+
 ```bash
 pwd
 ```
