@@ -1,9 +1,20 @@
 # sapienza-ml2021
 This repository is for the Machine Learning course held by prof. Iocchi
 
-## Installation
+## Install Docker
 
 In order to have a ready environment without installing manually all the libraries and dependencies, we'll use docker to do this.
+
+- [docker](http://www.docker.com)
+
+In order to install docker on your PC, you can follow the following guide:
+
+- [install docker for ubuntu] (https://docs.docker.com/engine/install/ubuntu/)
+- [Post-installation steps for Linux](https://docs.docker.com/install/linux/linux-postinstall/)
+
+NB: It's important that you add your user to the `docker` group and log out and in again, before proceeding.
+
+## Installation
 
 You'll need to follow this few steps:
 
@@ -25,10 +36,9 @@ NB : By doing this also the image "ermannobartoli99/sapienza-ml2021:latest" will
 
 NB : the folder nootebooks that you've create will be useful in order to share files between your pc and the container
 
-NB : the command sudo is not always needed for docker commands, but in some cases they only work with sudo
 
 ```bash
-sudo docker built -t NAME_OF_IMAGE .
+docker built -t NAME_OF_IMAGE .
 ```
 
 - after this step you'll have your image that you can run.
@@ -38,7 +48,7 @@ sudo docker built -t NAME_OF_IMAGE .
 Once that you're ready, you have to run the image by doing the following command:
 
 ```bash
-sudo docker run -p 8888:8888 -v PATH_TO_DIRECTORY/:/src/ NAME_OF_IMAGE
+docker run -p 8888:8888 -v PATH_TO_DIRECTORY/:/src/ NAME_OF_IMAGE
 ```
 NB: -p 8888:8888 should be always the same because it's for the port
 
@@ -52,10 +62,10 @@ pwd
 ## Commit the docker
 If you change something inside the docker and you want to keep the changes don't forget to commit the image by doing the following command:
 ```bash
-sudo docker commit ID_IMAGE NAME_OF_IMAGE
+docker commit ID_IMAGE NAME_OF_IMAGE
 ```
 NB: you can see the id of the image by doing the command:
 ```bash
-sudo docker ps -a
+docker ps -a
 ```
 
