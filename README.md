@@ -9,7 +9,7 @@ You'll need to follow this few steps:
 
 - Clone the repository with the following command:
 
-'''bash
+```bash
 git clone https://github.com/ErmannoBartoli99/sapienza-ml2021.git
-'''
+```
 
