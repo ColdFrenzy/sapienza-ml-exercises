@@ -1,4 +1,7 @@
-FROM ermannobartoli99/sapienza-ml2021:latest
+# Docker file for ML + notebook (local runtime for Google Colab)
+
+# https://www.tensorflow.org/install/source#gpu
+FROM tensorflow/tensorflow:2.3.2-gpu-jupyter
 
 RUN mkdir src
 WORKDIR src/
@@ -6,13 +9,10 @@ COPY . .
 
 RUN pip3 install -r requirements.txt
 
-WORKDIR /src/notebooks
+WORKDIR /src
 
-ENV TINI_VERSION v0.6.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-RUN chmod +x /usr/bin/tini
-ENTRYPOINT ["/usr/bin/tini", "--"]
-
-CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
-
-WORKDIR /src/notebooks
+#'*'
+CMD [ "jupyter", "notebook","--ip=0.0.0.0","--no-browser","--NotebookApp.allow_remote_access=True","--allow-root",\
+        "--NotebookApp.allow_origin='https://colab.research.google.com'", \
+        "--port=8888", "--NotebookApp.port_retries=0",\
+        "--notebook-dir=/src"]
