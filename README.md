@@ -63,11 +63,11 @@ bash run.bash
 ```
 If you have built your image without a script use the following command for an image with GPU support
 ```bash
-docker run --name NAME_OF_IMAGE --rm -p 8888:8888 -v PATH_TO_DIRECTORY/:/src/ NAME_OF_IMAGE
+nvidia-docker run --name NAME_OF_IMAGE --rm -p 8888:8888 -v PATH_TO_DIRECTORY/:/src/ NAME_OF_IMAGE
 ```
 or without GPU support
 ```bash
-nvidia-docker run --name NAME_OF_IMAGE --rm -p 8888:8888 -v PATH_TO_DIRECTORY/:/src/ NAME_OF_IMAGE
+docker run --name NAME_OF_IMAGE --rm -p 8888:8888 -v PATH_TO_DIRECTORY/:/src/ NAME_OF_IMAGE
 ```
 **NB**: -p 8888:8888 should be always the same because it's for the port
 
